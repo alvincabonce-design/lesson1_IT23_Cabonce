@@ -1,21 +1,9 @@
-tasks = []
-
-while True:
-    print("\n===== To-Do List =====")
-    print("1. Add Task")
-    print("2. Show Tasks")
-    print("3. Delete Task")
-    print("4. Edit Task")
-    print("5. Exit To-Do List")
-    print("======================")
-
-    choice = input("Enter your choice: ")
-
+def computing(a):
     if choice == '1':
-        task = input("Enter the task: ")
-        tasks.append(task) 
-        print("Task added!")
-
+            task = input("Enter the task: ")
+            tasks.append(task) 
+            print("Task added!")
+    
     elif choice == '2':
         if not tasks:
             add_task = input("You currently have no tasks. Would you like to add one? (Y/N): ").strip().lower()
@@ -69,9 +57,27 @@ while True:
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
 
-    elif choice == '5':
-        print("Exiting the To-Do List.")
-        break
-
     else:
         print("Invalid choice. Please try again.")
+
+    
+
+tasks = []
+
+while True:
+    print("\n===== To-Do List =====")
+    print("1. Add Task")
+    print("2. Show Tasks")
+    print("3. Delete Task")
+    print("4. Edit Task")
+    print("5. Exit To-Do List")
+    print("======================")
+
+    choice = input("Enter your choice: ")
+    if choice == '5':
+        print("Exiting the To-Do List.")
+        break
+    else:
+        computing(choice)
+
+    

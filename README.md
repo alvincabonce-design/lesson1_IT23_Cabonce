@@ -1,1 +1,81 @@
-What happens now?... Now? 
+def computing(a):
+    if choice == '1':
+            task = input("Enter the task: ")
+            tasks.append(task) 
+            print("Task added!")
+    
+    elif choice == '2':
+        if not tasks:
+            add_task = input("You currently have no tasks. Would you like to add one? (Y/N): ").strip().lower()
+            if add_task == 'y':
+                task = input("Enter the task: ")
+                tasks.append(task)
+                print("Task added!")
+            elif add_task == 'n':
+                print("Returning to the main menu.")
+            else:
+                print("Invalid choice. Returning to the main menu.")
+        else:
+            print("\nTasks:")
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]}")
+
+    elif choice == '3':
+        if not tasks:
+            print("There are no tasks to delete.")
+        else:
+            print("\nTasks:")
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]}")
+
+            try:
+                task_index = int(input("Enter the task number to delete: ")) - 1
+                if 0 <= task_index < len(tasks):
+                    deleted_task = tasks.pop(task_index)
+                    print(f"Deleted task: {deleted_task}")
+                else:
+                    print("Invalid task number.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+    elif choice == '4': 
+        if not tasks:
+            print("No tasks to update.")
+        else:
+            print("\nTasks:")
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]}")
+
+            try:
+                task_index = int(input("Enter the task number to update: ")) - 1
+                if 0 <= task_index < len(tasks):
+                    new_task = input("Enter the updated task: ")
+                    tasks[task_index] = new_task  
+                    print("Task updated successfully!")
+                else:
+                    print("Invalid task number.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+    else:
+        print("Invalid choice. Please try again.")
+
+    
+
+tasks = []
+
+while True:
+    print("\n===== To-Do List =====")
+    print("1. Add Task")
+    print("2. Show Tasks")
+    print("3. Delete Task")
+    print("4. Edit Task")
+    print("5. Exit To-Do List")
+    print("======================")
+
+    choice = input("Enter your choice: ")
+    if choice == '5':
+        print("Exiting the To-Do List.")
+        break
+    else:
+        computing(choice)
